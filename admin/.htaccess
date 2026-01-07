@@ -1,0 +1,27 @@
+# .htaccess trong thư mục admin
+
+# admin/.htaccess
+
+<Files \*>
+Order Deny,Allow
+Require all denied
+</Files>
+
+<Files "index.php">
+Order Allow,Deny
+Allow from all
+</Files>
+
+<Files "login.php">
+Order Allow,Deny
+Allow from all
+</Files>
+
+<Files "logout.php">
+Order Allow,Deny
+Allow from all
+</Files>
+
+# Chỉ cho phép truy cập với IP cụ thể (tùy chọn)
+
+# Allow from 192.168.1.100

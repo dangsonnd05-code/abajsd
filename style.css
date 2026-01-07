@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: #f5f3ef;
+    color: #333;
+}
+
+/* ===== HERO ===== */
+.hero {
+    height: 100vh;
+    background: linear-gradient(
+        rgba(0,0,0,0.55),
+        rgba(0,0,0,0.55)
+    ), url("assets/images/banner.jpg") center/cover no-repeat;
+    position: relative;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 25px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.menu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    letter-spacing: 1px;
+    position: relative;
+}
+
+.menu a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #cfa670;
+    transition: 0.3s;
+}
+
+.menu a:hover::after {
+    width: 100%;
+}
+
+/* ===== BUTTON ===== */
+.nav-right {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-outline {
+    border: 1px solid #fff;
+    padding: 8px 18px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 20px;
+}
+
+.btn-solid {
+    background: #cfa670;
+    padding: 8px 18px;
+    color: #000;
+    text-decoration: none;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.btn-solid.big {
+    padding: 14px 30px;
+    font-size: 16px;
+}
+
+/* ===== HERO TEXT ===== */
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+}
+
+.hero-content h1 {
+    font-size: 64px;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.hero-content p {
+    font-size: 20px;
+    margin-bottom: 30px;
+    color: #f3e9dc;
+}
+.login-box {
+    width: 350px;
+    background: #fff;
+    padding: 40px;
+    margin: 120px auto;
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .menu {
+        display: none;
+    }
+
+    .hero-content h1 {
+        font-size: 40px;
+    }
+}
