@@ -1,15 +1,15 @@
 <?php
-// connect.php
-$host = 'localhost';
-$username = 'root';
-$password = '';
-$database = 'web_cafe';
 
-$conn = new mysqli($host, $username, $password, $database);
+$host = getenv("MYSQLHOST") ?: "enterbeam.proxy.rlwy.net";
+$port = getenv("MYSQLPORT") ?: "19722";
+$user = getenv("MYSQLUSER") ?: "root";
+$pass = getenv("MYSQLPASSWORD") ?: "uoDMfeibNOBCcxsiiEVSLhIJtypTfRwn";
+$db   = getenv("MYSQLDATABASE") ?: "railway";
 
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+$conn = mysqli_connect($host, $user, $pass, $db, $port);
+
+if (!$conn) {
+    die("❌ Kết nối DB thất bại: " . mysqli_connect_error());
 }
 
-$conn->set_charset("utf8mb4");
-?>
+mysqli_set_charset($conn, "utf8mb4");
