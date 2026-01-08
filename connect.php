@@ -1,15 +1,21 @@
 <?php
 
-$host = getenv("MYSQLHOST") ?: "enterbeam.proxy.rlwy.net";
+$host = getenv("MYSQLHOST") ?: "centerbeam.proxy.rlwy.net";
 $port = getenv("MYSQLPORT") ?: "19722";
 $user = getenv("MYSQLUSER") ?: "root";
-$pass = getenv("MYSQLPASSWORD") ?: "uoDMfeibNOBCcxsiiEVSLhIJtypTfRwn";
+$pass = getenv("MYSQLPASSWORD") ?: "uoDMfeibNOBCcxsiieVSLhIJtypTfRwn";
 $db   = getenv("MYSQLDATABASE") ?: "railway";
 
-$conn = mysqli_connect($host, $user, $pass, $db, $port);
+try {
+    $dsn = "mysql:host=$host;port=$port;dbname=$db;charset=utf8mb4";
 
-if (!$conn) {
-    die("❌ Kết nối DB thất bại: " . mysqli_connect_error());
+    $conn = new PDO($dsn, $user, $pass, [
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    ]);
+
+    // echo "✅ Kết nối DB thành công";
+
+} catch (PDOException $e) {
+    die("❌ Lỗi kết nối DB: " . $e->getMessage());
 }
-
-mysqli_set_charset($conn, "utf8mb4");
